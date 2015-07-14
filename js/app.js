@@ -13,7 +13,7 @@ angular.module('todo', [])
 	}
 
 	$scope.deleteTask = function() {
-
+		$scope.tasklist.splice(index, 1);
 
 	}
 
