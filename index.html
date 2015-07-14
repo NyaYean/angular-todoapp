@@ -8,17 +8,22 @@
   <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-	<div id="todoapp">
+	<div id="todoapp" ng-controller="ToDoCtrl">
 		<div id="addtask">
-			<input type="text" name="add-task" class="add task" placeholder="Add your task here"/>
-			<select>
+			<input type="text" name="add-task" class="add task" placeholder="Add your task here" ng-model="taskName" ng-keyup="addTask()"/>
+			<select ng-model="priority">
 				<option value = 'normal'>Normal</option>
-				<object value = 'medium'>Medium</object>
-				<object value = 'high'>High</object>	
+				<option value = 'medium'>Medium</option>
+				<option value = 'high'>High</option>	
 			</select>
 		</div>
 		
 		<ul id="todo-list">
+			<li ng-repeat="task in tasklist track by $index">
+				<input type="checkbox" name="checkbox" ng-model="task.completed"/>
+				<span class="completed-{{task.completed}}">{{task.name}}</span>
+				<span class="priority {{task.priority}}">{{task.priority}}</span>
+			</li>	
 		</ul>
 	</div>
 	<script type="text/javascript" src-"js/app.js"></script>
